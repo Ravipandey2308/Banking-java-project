@@ -38,12 +38,14 @@ pipeline{
 
         // stage('run dockerfile'){
         //   steps{
+                  docker stop c001 || true
+                  docker rm c001 || true
         //        sh 'docker build -t myimg .'
         //    }
         //  }
         stage('port expose'){
             steps{
-                sh 'docker run -dt -p 8091:8091 --name c002 myimg'
+                sh 'docker run -dt -p 8091:8091 --name c001 myimg'
             }
         }   
     }
